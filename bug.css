@@ -1,0 +1,25 @@
+The following CSS code snippet demonstrates an issue where the expected behavior of the `:hover` pseudo-class does not occur due to specificity issues.  The inner `div`'s `:hover` style is overridden by the outer `div`'s default style. 
+
+```css
+div {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+}
+
+div:hover {
+  background-color: lightgreen;
+}
+
+div div {
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+}
+
+div div:hover {
+  background-color: orange;
+}
+```
+
+Expected Result: Hovering over the inner `div` should turn it orange.  Actual Result: Hovering over either `div` turns the outer `div` light green. The inner `div`'s hover state is not applied.

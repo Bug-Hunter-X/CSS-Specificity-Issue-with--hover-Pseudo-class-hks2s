@@ -1,0 +1,56 @@
+The solution involves increasing the specificity of the inner `div`'s `:hover` style using a more specific selector. Here's the corrected code:
+
+```css
+div {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+}
+
+div:hover {
+  background-color: lightgreen;
+}
+
+div div {
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+}
+
+div div:hover {
+  background-color: orange !important;
+}
+```
+
+Alternatively, we can add an extra class to increase the specificity:
+
+```css
+div {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+}
+
+div:hover {
+  background-color: lightgreen;
+}
+
+div div {
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+}
+
+div .inner:hover {
+  background-color: orange;
+}
+```
+
+And the HTML would need to be updated to include the class:
+
+```html
+<div>
+  <div class="inner"></div>
+</div>
+```
+This approach is generally preferred over using `!important`.
